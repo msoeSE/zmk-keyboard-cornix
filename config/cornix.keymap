@@ -152,7 +152,7 @@
 
         td_vim_single: td_vim_single {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <VIAL_TAPPING_TERM>;
             bindings = <&macro_hold_rgui>, <&macro_wn>;
@@ -160,7 +160,7 @@
 
         td_ralt_second: td_ralt_second {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <VIAL_TAPPING_TERM>;
             bindings = <&macro_shtuoi>, <&none>;
@@ -213,7 +213,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <VIAL_TAPPING_TERM>;
-            bindings = <&td_vim_single>, <&macro_sub>;
+            bindings = <&td_vim_single 0 0>, <&macro_sub>;
         };
 
         td_ralt_macro: tap_dance_ralt_macro {
@@ -221,7 +221,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <VIAL_TAPPING_TERM>;
             /* tap=Shift+GUI+C, hold=RALT, double-tap=none, tap+hold=macro_shtuoi */
-            bindings = <&vmt RALT LS(LG(C))>, <&td_ralt_second>;
+            bindings = <&vmt RALT LS(LG(C))>, <&td_ralt_second 0 0>;
         };
 
         td_win_edit: tap_dance_win_edit {
