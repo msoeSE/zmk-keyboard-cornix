@@ -99,7 +99,7 @@
             >;
         };
 
-        macro_shtuoi: macro_shtuoi {
+        macro_surely: macro_surely {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp S &kp H &kp T &kp U &kp O &kp I>;
@@ -163,7 +163,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <VIAL_TAPPING_TERM>;
-            bindings = <&macro_shtuoi>, <&none>;
+            bindings = <&macro_surely>, <&none>;
         };
 
         td_ctrl_arrows: tap_dance_ctrl_arrows {
@@ -220,7 +220,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <VIAL_TAPPING_TERM>;
-            /* tap=Shift+GUI+C, hold=RALT, double-tap=none, tap+hold=macro_shtuoi */
+            /* tap=Shift+GUI+C, hold=RALT, double-tap=none, tap+hold=macro_surely */
             bindings = <&vmt RALT LS(LG(C))>, <&td_ralt_second 0 0>;
         };
 
@@ -238,28 +238,28 @@
         combo_rt_profile0 {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <CONTROL_COMBO_PRIOR_IDLE>;
-            key-positions = <4 5>;
+            key-positions = <5 6>;
             bindings = <&profile_0_base>;
         };
 
         combo_er_profile1 {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <CONTROL_COMBO_PRIOR_IDLE>;
-            key-positions = <3 4>;
+            key-positions = <4 7>;
             bindings = <&profile_1_windows>;
         };
 
         combo_we_profile2 {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <CONTROL_COMBO_PRIOR_IDLE>;
-            key-positions = <2 3>;
+            key-positions = <3 8>;
             bindings = <&profile_2_base>;
         };
 
         combo_yu_output_toggle {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <CONTROL_COMBO_PRIOR_IDLE>;
-            key-positions = <6 7>;
+            key-positions = <2 9>;
             bindings = <&out OUT_TOG>;
         };
 
@@ -453,7 +453,7 @@
             bindings = <
                 &kp LG(Z)  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp LA(LEFT)  &kp END  &kp HOME  &kp LA(RIGHT)  &kp PG_UP  &kp LC(LG(SPACE))
                 &kp LS(LG(Z))  &kp F14  &kp LSHIFT  &kp F11  &kp F12  &kp F13  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp LG(X)  &trans
-                &macro_shtuoi  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans  &trans  &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(UP)  &kp LG(RIGHT)  &kp PG_DN  &macro_textblade
+                &macro_surely  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans  &trans  &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(UP)  &kp LG(RIGHT)  &kp PG_DN  &macro_textblade
                 &macro_email_work  &macro_email_personal  &none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
@@ -463,7 +463,7 @@
             bindings = <
                 &kp LC(Z)  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp LC(LEFT)  &kp LC(END)  &kp LC(HOME)  &kp LC(RIGHT)  &kp PG_UP  &kp LG(DOT)
                 &kp LC(Y)  &kp F14  &kp LSHIFT  &kp LSHIFT  &kp F12  &kp F13  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp LC(X)  &trans
-                &macro_shtuoi  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans  &trans  &kp HOME  &kp LC(DOWN)  &kp LC(UP)  &kp END  &kp PG_DN  &macro_textblade
+                &macro_surely  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans  &trans  &kp HOME  &kp LC(DOWN)  &kp LC(UP)  &kp END  &kp PG_DN  &macro_textblade
                 &macro_email_work  &macro_email_personal  &none  &trans  &trans  &trans  &trans  &trans  &trans  &macro_wn  &macro_sub  &macro_glove80
             >;
         };
