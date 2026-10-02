@@ -263,27 +263,33 @@
             bindings = <&out OUT_TOG>;
         };
 
-        combo_fd_fnmac {
+        combo_df_fnmac {
             timeout-ms = <COMBO_TERM>;
             key-positions = <16 15>;
-            layers = <BASE WINDOWS>;
+            layers = <BASE>;
             bindings = <&mo FN_MAC>;
+        };
+
+        combo_df_fnwin {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <16 15>;
+            layers = <WINDOWS>;
+            bindings = <&mo FN_WIN>;
         };
 
         combo_jk_fnmac {
             timeout-ms = <COMBO_TERM>;
             key-positions = <19 20>;
-            layers = <BASE WINDOWS>;
+            layers = <BASE>;
             bindings = <&mo FN_MAC>;
         };
 
-        combo_gf_fnwin {
+        combo_jk_fnwin {
             timeout-ms = <COMBO_TERM>;
-            key-positions = <17 16>;
-            layers = <BASE WINDOWS>;
+            key-positions = <19 20>;
+            layers = <WINDOWS>;
             bindings = <&mo FN_WIN>;
         };
-
         combo_kl_symbols {
             timeout-ms = <COMBO_TERM>;
             key-positions = <20 21>;
