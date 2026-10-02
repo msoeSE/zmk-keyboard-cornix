@@ -5,7 +5,7 @@
  * - Preserve the six Vial layers that are actually reachable/useful.
  * - Preserve tap/hold/double-tap/tap-hold behaviors using native ZMK
  *   hold-tap + tap-dance composition.
- * - Preserve the 20 Vial combos using Cornix physical key positions.
+ * - Preserve the Vial-derived combos using Cornix physical key positions.
  * - Preserve the two encoder functions from Vial layer 0.
  * - Preserve non-sensitive Vial macros.
  *
@@ -291,23 +291,41 @@
             bindings = <&tog SYMBOLS>;
         };
 
-        combo_cv_lgui {
+        /* Bottom-row modifier combos: Mac behavior on Base, Windows behavior on Windows. */
+
+        combo_cv_cmd_mac {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <27 28>;
-            layers = <BASE WINDOWS>;
+            layers = <BASE>;
             bindings = <&kp LGUI>;
         };
 
-        combo_mcomma_rgui {
+        combo_cv_ctrl_win {
+            timeout-ms = <COMBO_TERM>;
+            require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
+            key-positions = <27 28>;
+            layers = <WINDOWS>;
+            bindings = <&kp LCTRL>;
+        };
+
+        combo_mcomma_cmd_mac {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <33 34>;
-            layers = <BASE WINDOWS>;
+            layers = <BASE>;
             bindings = <&kp RGUI>;
         };
 
-        combo_xc_lalt {
+        combo_mcomma_ctrl_win {
+            timeout-ms = <COMBO_TERM>;
+            require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
+            key-positions = <33 34>;
+            layers = <WINDOWS>;
+            bindings = <&kp RCTRL>;
+        };
+
+        combo_xc_alt {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <26 27>;
@@ -315,7 +333,7 @@
             bindings = <&kp LALT>;
         };
 
-        combo_commadot_ralt {
+        combo_commadot_alt {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <34 35>;
@@ -323,39 +341,71 @@
             bindings = <&kp RALT>;
         };
 
-        combo_zx_lctrl {
+        combo_zx_ctrl_mac {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <25 26>;
-            layers = <BASE WINDOWS>;
+            layers = <BASE>;
             bindings = <&kp LCTRL>;
         };
 
-        combo_dotslash_rctrl {
+        combo_zx_win_win {
+            timeout-ms = <COMBO_TERM>;
+            require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
+            key-positions = <25 26>;
+            layers = <WINDOWS>;
+            bindings = <&kp LGUI>;
+        };
+
+        combo_dotslash_ctrl_mac {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <35 36>;
-            layers = <BASE WINDOWS>;
+            layers = <BASE>;
             bindings = <&kp RCTRL>;
         };
 
-        combo_xcv_lgui_lalt {
+        combo_dotslash_win_win {
+            timeout-ms = <COMBO_TERM>;
+            require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
+            key-positions = <35 36>;
+            layers = <WINDOWS>;
+            bindings = <&kp RGUI>;
+        };
+
+        combo_xcv_cmd_alt_mac {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <26 27 28>;
-            layers = <BASE WINDOWS>;
+            layers = <BASE>;
             bindings = <&kp LG(LALT)>;
         };
 
-        combo_mcommadot_rgui_ralt {
+        combo_xcv_ctrl_alt_win {
+            timeout-ms = <COMBO_TERM>;
+            require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
+            key-positions = <26 27 28>;
+            layers = <WINDOWS>;
+            bindings = <&kp LC(LALT)>;
+        };
+
+        combo_mcommadot_cmd_alt_mac {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <33 34 35>;
-            layers = <BASE WINDOWS>;
+            layers = <BASE>;
             bindings = <&kp RG(RALT)>;
         };
 
-        combo_zv_lgui_lctrl {
+        combo_mcommadot_ctrl_alt_win {
+            timeout-ms = <COMBO_TERM>;
+            require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
+            key-positions = <33 34 35>;
+            layers = <WINDOWS>;
+            bindings = <&kp RC(RALT)>;
+        };
+
+        combo_zv_cmd_ctrl {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <25 28>;
@@ -363,7 +413,7 @@
             bindings = <&kp LG(LCTRL)>;
         };
 
-        combo_mslash_rgui_rctrl {
+        combo_mslash_cmd_ctrl {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <33 36>;
@@ -371,7 +421,7 @@
             bindings = <&kp RG(RCTRL)>;
         };
 
-        combo_zxcv_lcagui {
+        combo_zxcv_ctrl_alt_cmd {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <25 26 27 28>;
@@ -379,44 +429,44 @@
             bindings = <&kp LC(LA(LGUI))>;
         };
 
-        combo_mcds_rcgalt {
+        combo_mcds_ctrl_alt_cmd {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <33 34 35 36>;
             layers = <BASE WINDOWS>;
-            bindings = <&kp RC(RG(RALT))>;
+            bindings = <&kp RC(RA(RGUI))>;
         };
 
-        combo_zxc_lalt_lctrl {
+        combo_zxc_ctrl_alt_mac {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <25 26 27>;
-            layers = <BASE WINDOWS>;
+            layers = <BASE>;
             bindings = <&kp LA(LCTRL)>;
         };
 
-        combo_cds_ralt_rctrl {
+        combo_zxc_win_alt_win {
+            timeout-ms = <COMBO_TERM>;
+            require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
+            key-positions = <25 26 27>;
+            layers = <WINDOWS>;
+            bindings = <&kp LG(LALT)>;
+        };
+
+        combo_cds_ctrl_alt_mac {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
             key-positions = <34 35 36>;
-            layers = <BASE WINDOWS>;
+            layers = <BASE>;
             bindings = <&kp RA(RCTRL)>;
         };
 
-        combo_vb_lctrl {
+        combo_cds_win_alt_win {
             timeout-ms = <COMBO_TERM>;
             require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
-            key-positions = <28 29>;
-            layers = <BASE WINDOWS>;
-            bindings = <&kp LCTRL>;
-        };
-
-        combo_nm_rctrl {
-            timeout-ms = <COMBO_TERM>;
-            require-prior-idle-ms = <MOD_COMBO_PRIOR_IDLE>;
-            key-positions = <32 33>;
-            layers = <BASE WINDOWS>;
-            bindings = <&kp RCTRL>;
+            key-positions = <34 35 36>;
+            layers = <WINDOWS>;
+            bindings = <&kp RG(RALT)>;
         };
     };
 
