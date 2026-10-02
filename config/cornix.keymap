@@ -180,19 +180,28 @@
             bindings = <&vmt LGUI LG(GRAVE)>, <&kp LS(LG(GRAVE))>;
         };
 
-        td_app_switch: tap_dance_app_switch {
+        td_mac_app_switch: tap_dance_mac_app_switch {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <VIAL_TAPPING_TERM>;
-            bindings = <&vmt LALT LG(TAB)>, <&kp LS(LG(TAB))>;
+            /* tap=Cmd+Tab, hold=left Cmd, double-tap=Shift+Cmd+Tab */
+            bindings = <&vmt LGUI LG(TAB)>, <&kp LS(LG(TAB))>;
+        };
+
+        td_win_app_switch: tap_dance_win_app_switch {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <VIAL_TAPPING_TERM>;
+            /* tap=Ctrl+Tab, hold=left Ctrl, double-tap=Shift+Ctrl+Tab */
+            bindings = <&vmt LCTRL LC(TAB)>, <&kp LS(LC(TAB))>;
         };
 
         td_mac_edit: tap_dance_mac_edit {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <VIAL_TAPPING_TERM>;
-            /* tap=paste, hold=GUI, double-tap=copy, tap+hold=cut */
-            bindings = <&vmt LGUI LG(V)>, <&vkp LG(X) LG(C)>;
+            /* tap=copy, hold=left Cmd, double-tap=paste, tap+hold=cut */
+            bindings = <&vmt LGUI LG(C)>, <&vkp LG(X) LG(V)>;
         };
 
         td_tab_switch: tap_dance_tab_switch {
@@ -206,7 +215,16 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <VIAL_TAPPING_TERM>;
-            bindings = <&vmt RCTRL LG(Z)>, <&kp LS(LG(Z))>;
+            /* tap=Cmd+Z, hold=right Cmd, double-tap=Shift+Cmd+Z */
+            bindings = <&vmt RGUI LG(Z)>, <&kp LS(LG(Z))>;
+        };
+
+        td_win_undo: tap_dance_win_undo {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <VIAL_TAPPING_TERM>;
+            /* tap=Ctrl+Z, hold=right Ctrl, double-tap=Shift+Ctrl+Z */
+            bindings = <&vmt RCTRL LC(Z)>, <&kp LS(LC(Z))>;
         };
 
         td_vim: tap_dance_vim {
@@ -228,7 +246,8 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <VIAL_TAPPING_TERM>;
-            bindings = <&vmt LCTRL LC(V)>, <&kp LC(C)>;
+            /* tap=copy, hold=left Ctrl, double-tap=paste, tap+hold=cut */
+            bindings = <&vmt LCTRL LC(C)>, <&vkp LC(X) LC(V)>;
         };
     };
 
@@ -485,7 +504,7 @@
                 &kp ESC  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC
                 &kp TAB  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp SQT  &kp ENTER
                 &kp LS(MINUS)  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp C_PLAY_PAUSE  &tog MOUSE  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
-                &td_ctrl_arrows  &td_gui_grave  &td_app_switch  &vlt SYMBOLS LA(SPACE)  &kp LSHIFT  &td_mac_edit  &vmt RGUI BSPC  &vlt SYMBOLS SPACE  &td_tab_switch  &td_mac_undo  &td_vim  &td_ralt_macro
+                &td_ctrl_arrows  &td_gui_grave  &td_mac_app_switch  &vlt SYMBOLS LA(SPACE)  &kp LSHIFT  &td_mac_edit  &vmt RGUI BSPC  &vlt SYMBOLS SPACE  &td_tab_switch  &td_mac_undo  &td_vim  &td_ralt_macro
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_NEXT C_PREV>;
         };
@@ -500,7 +519,7 @@
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &vmt LGUI X  &vmt LALT C  &vmt LCTRL V  &trans  &to BASE  &trans  &trans  &vmt RCTRL M  &vmt RALT DOT  &vmt RGUI DOT  &trans  &trans
-                &kp LCTRL  &kp LGUI  &kp LALT  &trans  &trans  &td_win_edit  &vmt LCTRL BSPC  &trans  &kp RA(TAB)  &kp RALT  &kp RGUI  &kp RCTRL
+                &kp LCTRL  &kp LGUI  &td_win_app_switch  &trans  &trans  &td_win_edit  &vmt LCTRL BSPC  &trans  &kp RA(TAB)  &td_win_undo  &kp RGUI  &kp RCTRL
             >;
         };
 
