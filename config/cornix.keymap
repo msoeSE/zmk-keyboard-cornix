@@ -35,7 +35,6 @@
 #define VIAL_TAPPING_TERM 250
 #define COMBO_TERM 50
 #define MOD_COMBO_PRIOR_IDLE 100
-#define CONTROL_COMBO_PRIOR_IDLE 200
 
 / {
     macros {
@@ -58,19 +57,19 @@
         profile_0_base: profile_0_base {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0>, <&to BASE>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 0>, <&to BASE>;
         };
 
         profile_1_windows: profile_1_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1>, <&to WINDOWS>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 1>, <&to WINDOWS>;
         };
 
         profile_2_base: profile_2_base {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 2>, <&to BASE>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 2>, <&to BASE>;
         };
 
         macro_sub: macro_sub {
@@ -260,30 +259,35 @@
             layers = <BASE>;
             bindings = <&mo FN_MAC>;
         };
+
         combo_df_fnwin {
             timeout-ms = <COMBO_TERM>;
             key-positions = <16 15>;
             layers = <WINDOWS>;
             bindings = <&mo FN_WIN>;
         };
+
         combo_fg_mouse {
             timeout-ms = <COMBO_TERM>;
             key-positions = <16 17>;
             layers = <BASE WINDOWS SYMBOLS>;
             bindings = <&mo MOUSE>;
         };
+
         combo_jk_fnmac {
             timeout-ms = <COMBO_TERM>;
             key-positions = <19 20>;
             layers = <BASE>;
             bindings = <&mo FN_MAC>;
         };
+
         combo_jk_fnwin {
             timeout-ms = <COMBO_TERM>;
             key-positions = <19 20>;
             layers = <WINDOWS>;
             bindings = <&mo FN_WIN>;
         };
+
         combo_kl_symbols {
             timeout-ms = <COMBO_TERM>;
             key-positions = <20 21>;
