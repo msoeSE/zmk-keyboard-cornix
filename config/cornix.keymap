@@ -199,8 +199,8 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <VIAL_TAPPING_TERM>;
-            /* tap=copy, hold=left Cmd, double-tap=paste, tap+hold=cut */
-            bindings = <&vmt LGUI LG(C)>, <&vkp LG(X) LG(V)>;
+            /* tap=paste, hold=left Cmd, double-tap=copy, tap+hold=cut */
+            bindings = <&vmt LGUI LG(V)>, <&vkp LG(X) LG(C)>;
         };
 
         td_tab_switch: tap_dance_tab_switch {
@@ -245,8 +245,8 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <VIAL_TAPPING_TERM>;
-            /* tap=copy, hold=left Ctrl, double-tap=paste, tap+hold=cut */
-            bindings = <&vmt LCTRL LC(C)>, <&vkp LC(X) LC(V)>;
+            /* tap=paste, hold=left Ctrl, double-tap=copy, tap+hold=cut */
+            bindings = <&vmt LCTRL LC(V)>, <&vkp LC(X) LC(C)>;
         };
     };
 
