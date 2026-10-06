@@ -538,7 +538,7 @@
             bindings = <
                 &kp LC(Z)  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp LC(LEFT)  &kp LC(END)  &kp LC(HOME)  &kp LC(RIGHT)  &kp PG_UP  &kp LG(DOT)
                 &kp LC(Y)  &kp F14  &kp LSHIFT  &kp LSHIFT  &kp F12  &kp F13  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp LC(X)  &trans
-                &macro_surely  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans  &trans  &kp HOME  &kp LC(DOWN)  &kp LC(UP)  &kp END  &kp PG_DN  &macro_textblade
+                &macro_surely  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans  &trans  &kp HOME  &kp LC(END)  &kp LC(HOME)  &kp END  &kp PG_DN  &macro_textblade
                 &macro_email_work  &macro_email_personal  &none  &trans  &trans  &trans  &trans  &trans  &trans  &macro_wn  &macro_sub  &macro_glove80
             >;
         };
