@@ -254,55 +254,30 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_rt_profile0 {
-            timeout-ms = <COMBO_TERM>;
-            require-prior-idle-ms = <CONTROL_COMBO_PRIOR_IDLE>;
-            key-positions = <0 11>;
-            bindings = <&profile_0_base>;
-        };
-
-        combo_er_profile1 {
-            timeout-ms = <COMBO_TERM>;
-            require-prior-idle-ms = <CONTROL_COMBO_PRIOR_IDLE>;
-            key-positions = <0 23>;
-            bindings = <&profile_1_windows>;
-        };
-
-        combo_we_profile2 {
-            timeout-ms = <COMBO_TERM>;
-            require-prior-idle-ms = <CONTROL_COMBO_PRIOR_IDLE>;
-            key-positions = <0 37>;
-            bindings = <&profile_2_base>;
-        };
-
-        combo_yu_output_toggle {
-            timeout-ms = <COMBO_TERM>;
-            require-prior-idle-ms = <CONTROL_COMBO_PRIOR_IDLE>;
-            key-positions = <0 49>;
-            bindings = <&out OUT_TOG>;
-        };
-
         combo_df_fnmac {
             timeout-ms = <COMBO_TERM>;
             key-positions = <16 15>;
             layers = <BASE>;
             bindings = <&mo FN_MAC>;
         };
-
         combo_df_fnwin {
             timeout-ms = <COMBO_TERM>;
             key-positions = <16 15>;
             layers = <WINDOWS>;
             bindings = <&mo FN_WIN>;
         };
-
+        combo_fg_mouse {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <16 17>;
+            layers = <BASE WINDOWS SYMBOLS>;
+            bindings = <&mo MOUSE>;
+        };
         combo_jk_fnmac {
             timeout-ms = <COMBO_TERM>;
             key-positions = <19 20>;
             layers = <BASE>;
             bindings = <&mo FN_MAC>;
         };
-
         combo_jk_fnwin {
             timeout-ms = <COMBO_TERM>;
             key-positions = <19 20>;
@@ -518,8 +493,8 @@
             bindings = <
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &vmt LGUI X  &vmt LALT C  &vmt LCTRL V  &trans  &to BASE  &trans  &trans  &vmt RCTRL M  &vmt RALT DOT  &vmt RGUI DOT  &trans  &trans
-                &kp LCTRL  &kp LGUI  &td_win_app_switch  &trans  &trans  &td_win_edit  &vmt LCTRL BSPC  &trans  &kp RA(TAB)  &td_win_undo  &kp RGUI  &kp RCTRL
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &kp LCTRL  &kp LGUI  &td_win_app_switch  &trans  &trans  &td_win_edit  &vmt LCTRL BSPC  &trans  &kp RA(TAB)  &td_win_undo  &trans  &to BASE
             >;
         };
 
@@ -556,10 +531,10 @@
         mouse_layer {
             display-name = "Mouse";
             bindings = <
-                &out OUT_TOG  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-                &profile_0_base  &none  &none  &none  &none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &none
-                &profile_1_windows  &to BASE  &to WINDOWS  &none  &none  &none  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &none  &none
-                &profile_2_base  &to BASE  &to WINDOWS  &none  &none  &none  &mkp MB2  &mkp MB1  &mkp MB3  &none  &none  &none
+                &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &profile_0_base
+                &none  &none  &none  &none  &none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &profile_1_windows
+                &none  &none  &none  &none  &none  &none  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &none  &profile_2_base
+                &to BASE  &none  &to WINDOWS  &none  &none  &none  &mkp MB2  &mkp MB1  &mkp MB3  &none  &none  &out OUT_TOG
             >;
         };
     };
