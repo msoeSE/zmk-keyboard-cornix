@@ -149,6 +149,16 @@
             bindings = <&kp>, <&kp>;
         };
 
+        edit_mt: edit_mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <VIAL_TAPPING_TERM>;
+            hold-while-undecided;
+            hold-while-undecided-linger;
+            bindings = <&kp>, <&kp>;
+        };
+
         td_vim_single: td_vim_single {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -200,7 +210,15 @@
             #binding-cells = <0>;
             tapping-term-ms = <VIAL_TAPPING_TERM>;
             /* tap=paste, hold=left Cmd, double-tap=copy, tap+hold=cut */
-            bindings = <&vmt LGUI LG(V)>, <&vkp LG(X) LG(C)>;
+            bindings = <&edit_mt LGUI LG(V)>, <&vkp LG(X) LG(C)>;
+        };
+
+        td_win_edit: tap_dance_win_edit {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <VIAL_TAPPING_TERM>;
+            /* tap=paste, hold=Ctrl, double-tap=copy, tap+hold=cut */
+            bindings = <&edit_mt LCTRL LC(V)>, <&vkp LC(X) LC(C)>;
         };
 
         td_tab_switch: tap_dance_tab_switch {
@@ -241,13 +259,6 @@
             bindings = <&vmt RALT LS(LG(C))>, <&td_ralt_second 0 0>;
         };
 
-        td_win_edit: tap_dance_win_edit {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <VIAL_TAPPING_TERM>;
-            /* tap=paste, hold=left Ctrl, double-tap=copy, tap+hold=cut */
-            bindings = <&vmt LCTRL LC(V)>, <&vkp LC(X) LC(C)>;
-        };
     };
 
     combos {
